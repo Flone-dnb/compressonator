@@ -70,10 +70,10 @@ print("\nFetching dependencies from: " + gitRoot + " - using branch: " + gitBran
 ghRoot      = "https://github.com/GPUOpen-Tools/"
 
 # Common lib location
-cmpCommon      = "../common/lib/ext/"
+cmpCommon      = "common/lib/ext/"
 
 # Common lib location from zip folder
-cmpCommonZip   = "../../common/lib/ext/"
+cmpCommonZip   = "../common/lib/ext/"
 
 # source reviews for use
 #   "https://github.com/opencv/opencv.git"                  : [cmpCommon+"opencv2",     "2.4.9"]

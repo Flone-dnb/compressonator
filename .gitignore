@@ -35,3 +35,5 @@ internal/tests/scripts/temp/*
 __pycache__
 *.aps
 transcode_temp.dds
+
+common

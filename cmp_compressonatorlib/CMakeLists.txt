@@ -35,14 +35,14 @@ file(GLOB_RECURSE CMP_SRCS
     # Common 
     "common/*.h"
     "common/*.cpp"
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common/*.h
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common/*.cpp
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common/half/*.h
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common/half/*.cpp
-    ${PROJECT_SOURCE_DIR}/applications/_plugins/common/atiformats.cpp
-    ${PROJECT_SOURCE_DIR}/applications/_plugins/common/atiformats.h
-    ${PROJECT_SOURCE_DIR}/applications/_plugins/common/format_conversion.h
-    ${PROJECT_SOURCE_DIR}/applications/_plugins/common/format_conversion.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_framework/common/*.h
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_framework/common/*.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_framework/common/half/*.h
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_framework/common/half/*.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../applications/_plugins/common/atiformats.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/../applications/_plugins/common/atiformats.h
+    ${CMAKE_CURRENT_LIST_DIR}/../applications/_plugins/common/format_conversion.h
+    ${CMAKE_CURRENT_LIST_DIR}/../applications/_plugins/common/format_conversion.cpp
 )
 
 if (OPTION_BUILD_ASTC)
@@ -73,6 +73,10 @@ add_library(CMP_Compressonator
     ${CMP_SRCS}
 )
 
+if (MSVC)
+target_compile_options(CMP_Compressonator PRIVATE /Zc:strictStrings-)
+endif()
+
 target_include_directories(CMP_Compressonator
     PRIVATE
     ./
@@ -93,10 +97,12 @@ target_include_directories(CMP_Compressonator
 
     # Common
     common
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common/half
-    ${PROJECT_SOURCE_DIR}/applications/_plugins/common
-    ${PROJECT_SOURCE_DIR}/applications/_libs/cmp_math/
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_framework/common
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_framework/common/half
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_core/shaders
+    ${CMAKE_CURRENT_LIST_DIR}/../cmp_core/source
+    ${CMAKE_CURRENT_LIST_DIR}/../applications/_plugins/common
+    ${CMAKE_CURRENT_LIST_DIR}/../applications/_libs/cmp_math/
 )
 
 set_target_properties(CMP_Compressonator PROPERTIES FOLDER "Libs")
