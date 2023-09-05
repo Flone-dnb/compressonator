@@ -1345,8 +1345,11 @@ int Plugin_KTX::TC_PluginFileSaveTexture(const char* pszFilename, MipSet* pMipSe
         if (KTX_CMips)
             KTX_CMips->PrintError(("Error(%d): KTX Plugin ID(%d) saving file = %s "), EL_Error, IDS_ERROR_FILE_OPEN, pszFilename);
         fclose(pFile);
+        delete inputMip;
         return -1;
     }
+
+    delete[] inputMip;
 
     return 0;
 }

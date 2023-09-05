@@ -279,10 +279,10 @@ void CCPU_HPC::SetComputeOptions(ComputeOptions *CLOptions) {
 }
 
 CCPU_HPC::~CCPU_HPC() {
-//   if (m_EncodeParameterStorage)
-//           delete[] m_EncodeParameterStorage;
-//   if (m_EncodingThreadHandle)
-//           delete[] m_EncodingThreadHandle;;
+  if (m_EncodeParameterStorage)
+          delete[] m_EncodeParameterStorage;
+  if (m_EncodingThreadHandle)
+          delete[] m_EncodingThreadHandle;
 }
 
 

@@ -1127,7 +1127,7 @@ void CMP_CMIPS::FreeMipSet(CMP_MipSet* pMipSet)
                 assert(0);
             }
             //free all miplevels and their data except the one use in gui view
-            for (int i = 0; i < nTotalOldMipLevels - 2; i++)
+            for (int i = 0; i < nTotalOldMipLevels; i++)
             {
                 if (pMipSet->m_pMipLevelTable[i]->m_pbData)
                 {
