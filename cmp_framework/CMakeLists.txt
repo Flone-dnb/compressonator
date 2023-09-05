@@ -144,6 +144,9 @@ if (UNIX)
     target_compile_definitions(CMP_Framework PRIVATE _LINUX)
 endif()
 
+add_subdirectory(../applications/_plugins/cimage/ktx dep/ktxplugin SYSTEM)
+target_link_libraries(CMP_Framework PRIVATE Image_KTX)
+
 set_target_properties(CMP_Framework PROPERTIES FOLDER "Libs")
 
 target_link_libraries(CMP_Framework PRIVATE CMP_Core)

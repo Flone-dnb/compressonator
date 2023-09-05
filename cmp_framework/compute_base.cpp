@@ -64,6 +64,7 @@ static int                exitreg       = false;
 static int                startupreg    = false;
 
 extern void* make_Plugin_DDS();
+extern void* make_Plugin_KTX();
 extern void* make_Plugin_HPC();
 
 // CMP_Core Compression Codecs
@@ -92,6 +93,7 @@ void CMP_RegisterHostPlugins() {
     if (HostPluginsRegistered == FALSE) {
         // Hosts
         g_pluginManager.registerStaticPlugin("IMAGE",   "DDS", (void*)make_Plugin_DDS);
+        g_pluginManager.registerStaticPlugin("IMAGE",   "KTX", (void*)make_Plugin_KTX);
         g_pluginManager.registerStaticPlugin("PIPELINE","HPC", (void*)make_Plugin_HPC);
         // Encoders
         g_pluginManager.registerStaticPlugin("ENCODER", "BC1", (void*)make_Plugin_BC1);

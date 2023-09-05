@@ -20,12 +20,12 @@ target_sources(Image_KTX
 
 target_include_directories(Image_KTX
     PRIVATE
-    ${PROJECT_SOURCE_DIR}/cmp_compressonatorlib
-    ${PROJECT_SOURCE_DIR}/applications/_libs/gpu_decode
-    ${PROJECT_SOURCE_DIR}/cmp_framework/common/half
-    ${PROJECT_SOURCE_DIR}/applications/_plugins/common
+    ${CMAKE_CURRENT_LIST_DIR}/../../../../cmp_compressonatorlib
+    ${CMAKE_CURRENT_LIST_DIR}/../../../../applications/_libs/gpu_decode
+    ${CMAKE_CURRENT_LIST_DIR}/../../../../cmp_framework/common/half
+    ${CMAKE_CURRENT_LIST_DIR}/../../../../applications/_plugins/common
 
-    ${PROJECT_SOURCE_DIR}/../common/lib/ext/glew/1.9.0/include
+    ${CMAKE_CURRENT_LIST_DIR}/../../../../common/lib/ext/glew/1.9.0/include
     ./lib/
     ./
     )
@@ -35,8 +35,8 @@ target_include_directories(Image_KTX
 if (CMP_HOST_WINDOWS)
     target_include_directories(Image_KTX
       PRIVATE
-      ${PROJECT_SOURCE_DIR}/../common/lib/ext/ktx/include
-      ${PROJECT_SOURCE_DIR}/../common/lib/ext/ktx/lib
+      ${CMAKE_CURRENT_LIST_DIR}/../../../../common/lib/ext/ktx/include
+      ${CMAKE_CURRENT_LIST_DIR}/../../../../common/lib/ext/ktx/lib
       ${VULKAN_SDK_PATH}/include/
       )
 
@@ -59,8 +59,9 @@ if (UNIX)
     endif()
 endif()
 
-
 set_target_properties(Image_KTX PROPERTIES 
     FOLDER "Plugin_Static/ImageIO"
     # USE_FOLDERS ON
     )
+
+target_link_directories(Image_KTX PUBLIC ${CMAKE_CURRENT_LIST_DIR}/../../../../common/lib/ext/glew/1.9.0/lib/x64/)
