@@ -1213,7 +1213,7 @@ static CGU_Vec2i cmp_findEndpointsAlphaBlockSnorm(CGU_FLOAT alphaBlockSnorm[BLOC
 }
 
 #ifndef ASPM_HLSL
-static CGU_UINT64 cmp_getBlockPackedIndicesSNorm(CGU_Vec2f alphaMinMax, CGU_FLOAT alphaBlockSnorm[BLOCK_SIZE_4X4], CGU_UINT64 data)
+static CGU_UINT64 cmp_getBlockPackedIndicesSNorm1(CGU_Vec2f alphaMinMax, CGU_FLOAT alphaBlockSnorm[BLOCK_SIZE_4X4], CGU_UINT64 data)
 {
     CGU_FLOAT alpha[8];
     alpha[0] = alphaMinMax.x;
@@ -1377,7 +1377,7 @@ static CGU_Vec2ui cmp_compressAlphaBlock(CMP_IN CGU_FLOAT alphaBlock[BLOCK_SIZE_
         alphaMinMax.x = (CGU_FLOAT)(BC4_Snorm_block.red_0) / 127.0f;
         alphaMinMax.y = (CGU_FLOAT)(BC4_Snorm_block.red_1) / 127.0f;
 
-        BC4_Snorm_block.data = cmp_getBlockPackedIndicesSNorm(alphaMinMax, alphaBlock, BC4_Snorm_block.data);
+        BC4_Snorm_block.data = cmp_getBlockPackedIndicesSNorm1(alphaMinMax, alphaBlock, BC4_Snorm_block.data);
         CmpBlock.x           = BC4_Snorm_block.compressedBlock[0];
         CmpBlock.y           = BC4_Snorm_block.compressedBlock[1];
 #else

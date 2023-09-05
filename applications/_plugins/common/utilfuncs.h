@@ -28,6 +28,7 @@
 #define _AMD_TEX_UTILSFUNCS_H_INCLUDED_
 
 #include <string>
+#include <cstdint>
 
 #ifdef _WIN32
 #include <windows.h>
